@@ -265,6 +265,17 @@
                 },
                 {
                     "name": "",
+                    "id": "cb2e7e03-1858-420f-8843-4ef66b41bc8e",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "Fire",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "493bd292-6429-4218-bef6-4afef7f4c193",
                     "path": "<Keyboard>/upArrow",
                     "interactions": "",
@@ -278,17 +289,6 @@
                     "name": "",
                     "id": "9efb9138-2e39-45eb-bf48-923232365169",
                     "path": "<Keyboard>/w",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Jump",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "bc821c83-ed9a-437b-8552-3311cc9afc8d",
-                    "path": "<Keyboard>/space",
                     "interactions": "",
                     "processors": "",
                     "groups": "",

@@ -5,26 +5,22 @@ using UnityEngine;
 public class Weapon : MonoBehaviour
 {
 
-      public GameObject projectilePrefab;
-      [SerializeField] float bulletSpeed = 10; 
+    public Bullet projectilePrefab;
 
     public void OnFire()
     {
         // Create a new projectile
-        GameObject projectile = Instantiate(projectilePrefab);
+        Bullet projectile = Instantiate(projectilePrefab);
 
         // Set the position and velocity of the projectile
         projectile.transform.position = transform.position;
-        if(transform.localScale.x<0)
+        if (transform.localScale.x < 0)
         {
-        projectile.GetComponent<Rigidbody2D>().velocity = -(transform.right) * bulletSpeed;
-        Vector3 Scale = projectile.transform.localScale;
-        Scale.x *= -1;
-        projectile.transform.localScale = Scale;
+            projectile.SetBullet(-transform.right, true);
         }
         else
         {
-        projectile.GetComponent<Rigidbody2D>().velocity = transform.right * bulletSpeed;
+            projectile.SetBullet(transform.right, false);
         }
 
     }
