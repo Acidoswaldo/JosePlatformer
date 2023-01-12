@@ -27101,8 +27101,8 @@ MonoBehaviour:
         Owner: {fileID: 1206022806}
         DebugActive: 0
         LoadingSceneName: MMAdditiveLoadingScreen
-        DestinationSceneName: Game
-        LoadingMode: 2
+        DestinationSceneName: Testing Jose
+        LoadingMode: 0
         Priority: 4
         InterpolateProgress: 1
         SecureLoad: 1
