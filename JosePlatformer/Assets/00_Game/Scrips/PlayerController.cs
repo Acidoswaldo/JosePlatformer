@@ -8,16 +8,18 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] float runSpeed = 5f;
     [SerializeField] float jumpSpeed = 8f;
- Vector2 moveInput;
- Rigidbody2D myRigidbody;
- CapsuleCollider2D myCapsuleCollider;
+    Vector2 moveInput;
+    Rigidbody2D myRigidbody;
+    CapsuleCollider2D myCapsuleCollider;
+    Animator myAnimator;
 
 
 
     void Start()
     {
-        myRigidbody=GetComponent<Rigidbody2D>();
-        myCapsuleCollider=GetComponent<CapsuleCollider2D>();
+        myRigidbody = GetComponent<Rigidbody2D>();
+        myCapsuleCollider = GetComponent<CapsuleCollider2D>();
+        myAnimator = GetComponent<Animator>();
     }
 
     void Update()
@@ -26,38 +28,43 @@ public class PlayerController : MonoBehaviour
         FlipSprite();
     }
 
-    void OnMove (InputValue value)
+    void OnMove(InputValue value)
     {
-        moveInput=value.Get<Vector2>();
+        moveInput = value.Get<Vector2>();
         Debug.Log(moveInput);
     }
 
-    void Run ()
+    void Run()
     {
-        Vector2 playerVelocity = new Vector2 (moveInput.x * runSpeed,myRigidbody.velocity.y);
+        Vector2 playerVelocity = new Vector2(moveInput.x * runSpeed, myRigidbody.velocity.y);
         myRigidbody.velocity = playerVelocity;
+
+        bool playerHasHorizontalSpeed = Mathf.Abs(myRigidbody.velocity.x) > Mathf.Epsilon;
+        myAnimator.SetBool("isRunning", playerHasHorizontalSpeed);
     }
 
     void FlipSprite()
     {
-          bool playerHasHorizontalSpeed=Mathf.Abs(myRigidbody.velocity.x)>Mathf.Epsilon;
-          if (playerHasHorizontalSpeed)
+        bool playerHasHorizontalSpeed = Mathf.Abs(myRigidbody.velocity.x) > Mathf.Epsilon;
+        if (playerHasHorizontalSpeed)
         {
-         transform.localScale = new Vector2 (Mathf.Sign(myRigidbody.velocity.x),1f);
+            transform.localScale = new Vector2(Mathf.Sign(myRigidbody.velocity.x), 1f);
         }
-    
+
     }
 
-    void OnJump (InputValue value)
+    void OnJump(InputValue value)
     {
-        if(!myCapsuleCollider.IsTouchingLayers(LayerMask.GetMask("Ground")))
+        if (!myCapsuleCollider.IsTouchingLayers(LayerMask.GetMask("Ground")))
         {
             return;
         }
-if (value.isPressed )
-{
-    myRigidbody.velocity += new Vector2 (0f,jumpSpeed);
-}
+        if (value.isPressed)
+        {
+            myRigidbody.velocity += new Vector2(0f, jumpSpeed);
+
+            myAnimator.SetBool("isJumping", true);
+        }
     }
 
 
