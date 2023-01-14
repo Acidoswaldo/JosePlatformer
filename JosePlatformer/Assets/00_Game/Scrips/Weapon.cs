@@ -6,6 +6,7 @@ public class Weapon : MonoBehaviour
 {
 
     public Bullet projectilePrefab;
+    [SerializeField]Animator myAnimator;
 
     public void OnFire()
     {
@@ -16,11 +17,15 @@ public class Weapon : MonoBehaviour
         projectile.transform.position = transform.position;
         if (transform.localScale.x < 0)
         {
+            myAnimator.SetTrigger("isShooting");
             projectile.SetBullet(-transform.right, true);
+            FindObjectOfType<AudioManager>().Play("Beam");
         }
         else
         {
             projectile.SetBullet(transform.right, false);
+            myAnimator.SetTrigger("isShooting");
+            FindObjectOfType<AudioManager>().Play("Beam");
         }
 
     }

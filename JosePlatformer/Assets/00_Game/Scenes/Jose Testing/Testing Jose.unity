@@ -207,7 +207,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -3
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -232,7 +232,94 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &277650891
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 277650893}
+  - component: {fileID: 277650892}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &277650892
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 277650891}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 350340a0dee7b401786353c5c5694dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: PlayerDeath
+    clip: {fileID: 8300000, guid: 6fd28764ccf1d448b95d5ee1c4c867da, type: 3}
+    volume: 0.356
+    pitch: 0.7
+    loop: 0
+    source: {fileID: 0}
+  - name: Theme
+    clip: {fileID: 8300000, guid: a69a55664a4bd4c7e846da68fd1e9d00, type: 3}
+    volume: 0.22
+    pitch: 0.5
+    loop: 1
+    source: {fileID: 0}
+  - name: Beam
+    clip: {fileID: 8300000, guid: fbc622a917eea43e28182ff5ea982a27, type: 3}
+    volume: 0.702
+    pitch: 1.03
+    loop: 0
+    source: {fileID: 0}
+  - name: Jump
+    clip: {fileID: 8300000, guid: db304ff591a7c485f97932e455aff165, type: 3}
+    volume: 0.216
+    pitch: 0.88
+    loop: 0
+    source: {fileID: 0}
+  - name: Sniper
+    clip: {fileID: 8300000, guid: 90555d7988f4a42c19f3c24d46404dcd, type: 3}
+    volume: 0.272
+    pitch: 0.74
+    loop: 0
+    source: {fileID: 0}
+  - name: Ouch
+    clip: {fileID: 8300000, guid: 08cc294e91ea44003b2677aed8bb68b1, type: 3}
+    volume: 0.386
+    pitch: 0.84
+    loop: 0
+    source: {fileID: 0}
+  - name: GameOver
+    clip: {fileID: 0}
+    volume: 0.233
+    pitch: 0.81
+    loop: 0
+    source: {fileID: 0}
+--- !u!4 &277650893
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 277650891}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &507640537
 GameObject:
@@ -324,7 +411,7 @@ Transform:
   m_Children:
   - {fileID: 693922910}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &507640540
 Rigidbody2D:
@@ -420,6 +507,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectilePrefab: {fileID: 5898519791141148052, guid: 7c3f9493544de41f99f79af06076968f, type: 3}
+  myAnimator: {fileID: 507640546}
 --- !u!114 &507640545
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -434,6 +522,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 100
   currentHealth: 0
+  myAnimator: {fileID: 507640546}
 --- !u!95 &507640546
 Animator:
   serializedVersion: 4
@@ -642,7 +731,7 @@ Transform:
   m_Children:
   - {fileID: 859690655}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1268937662
 GameObject:
@@ -790,7 +879,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1711122764
 MonoBehaviour:
@@ -909,5 +998,5 @@ Transform:
   - {fileID: 1377445488}
   - {fileID: 1268937663}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

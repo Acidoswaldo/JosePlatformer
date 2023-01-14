@@ -11,6 +11,10 @@ public class EnemyShooter : MonoBehaviour
 
     private GameObject player; // A reference to the player game object
     private float nextFireTime; // The time at which the enemy can next fire a projectile
+    Animator myAnimator;
+
+
+
 
     void Start()
     {
@@ -23,7 +27,9 @@ public class EnemyShooter : MonoBehaviour
         // If the player is within range and it is time to fire, shoot a projectile
         if (Vector2.Distance(transform.position, player.transform.position) < fireRange && Time.time >= nextFireTime)
         {
+
             FireProjectile();
+            FindObjectOfType<AudioManager>().Play("Sniper");
         }
     }
 
@@ -31,7 +37,8 @@ public class EnemyShooter : MonoBehaviour
     {
         // Instantiate a new projectile at the fire point
         Bullet projectile = Instantiate(projectilePrefab, firePoint.position, firePoint.rotation);
-        projectile.SetBullet(-GetDirection(out bool isLeft),isLeft);
+        projectile.SetBullet(-GetDirection(out bool isLeft), isLeft);
+
 
 
         // Set the next time the enemy can fire a projectile
@@ -44,6 +51,7 @@ public class EnemyShooter : MonoBehaviour
         if (returnValue.x < 0)
         {
             isLeft = true;
+
         }
         else
         {
@@ -51,4 +59,6 @@ public class EnemyShooter : MonoBehaviour
         }
         return returnValue;
     }
+
+   
 }

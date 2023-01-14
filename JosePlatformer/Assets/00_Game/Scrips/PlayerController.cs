@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour
     Rigidbody2D myRigidbody;
     CapsuleCollider2D myCapsuleCollider;
     Animator myAnimator;
+    bool isGrounded;
 
 
 
@@ -26,6 +27,7 @@ public class PlayerController : MonoBehaviour
     {
         Run();
         FlipSprite();
+        CheckGrounded();
     }
 
     void OnMove(InputValue value)
@@ -55,15 +57,31 @@ public class PlayerController : MonoBehaviour
 
     void OnJump(InputValue value)
     {
-        if (!myCapsuleCollider.IsTouchingLayers(LayerMask.GetMask("Ground")))
-        {
-            return;
-        }
-        if (value.isPressed)
+        
+        if (value.isPressed && isGrounded)
         {
             myRigidbody.velocity += new Vector2(0f, jumpSpeed);
 
             myAnimator.SetBool("isJumping", true);
+
+            FindObjectOfType<AudioManager>().Play("Jump");
+        }
+    }
+
+    void CheckGrounded ()
+    {
+        if (!myCapsuleCollider.IsTouchingLayers(LayerMask.GetMask("Ground")))
+        {
+            isGrounded = false;
+        }
+        else
+        {
+            if (!isGrounded)
+            {
+                myAnimator.SetBool("isJumping", false);
+            }
+            isGrounded = true;
+
         }
     }
 

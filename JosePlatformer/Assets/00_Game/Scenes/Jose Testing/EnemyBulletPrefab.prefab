@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3057616635110425283}
   - component: {fileID: 3795597504630328114}
   - component: {fileID: 2593503260356625779}
+  - component: {fileID: 8226113069801438780}
   - component: {fileID: 2453814495341275296}
   - component: {fileID: -4071686715411772319}
   m_Layer: 0
@@ -101,9 +102,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletSpeed: 10
   isEnemy: 1
-  wasShot: 0
+  wasShot: 1
   bulletTime: 2
-  bulletDamage: 1
+  bulletDamage: 5
+--- !u!114 &8226113069801438780
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 806568618049962639}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b533b8345d0b49a0806df9ab45fce62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!50 &2453814495341275296
 Rigidbody2D:
   serializedVersion: 4
