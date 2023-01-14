@@ -27,7 +27,7 @@ public class EnemyShooter : MonoBehaviour
         // If the player is within range and it is time to fire, shoot a projectile
         if (Vector2.Distance(transform.position, player.transform.position) < fireRange && Time.time >= nextFireTime)
         {
-
+            if (GameManager.instance.gameEnded) return;
             FireProjectile();
             FindObjectOfType<AudioManager>().Play("Sniper");
         }

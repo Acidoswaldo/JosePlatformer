@@ -90,6 +90,7 @@ public class Bullet : MonoBehaviour
 
             {
                 damagedObject.TakeDamage(bulletDamage);
+           
 
                 if (wasShot) Destroy(gameObject);
             }

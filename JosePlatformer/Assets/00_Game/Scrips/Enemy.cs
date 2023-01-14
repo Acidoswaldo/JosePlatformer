@@ -42,6 +42,7 @@ public class Enemy : MonoBehaviour, ITakeDamage
         {
             enemySpawner.EnemyDown();
             Destroy(gameObject);
+            GameManager.instance.ScoreUpdate(GameManager.instance.GetScore() + 1);
 
         }
         

@@ -104,7 +104,7 @@ MonoBehaviour:
   isEnemy: 1
   wasShot: 1
   bulletTime: 2
-  bulletDamage: 5
+  bulletDamage: 1
 --- !u!114 &8226113069801438780
 MonoBehaviour:
   m_ObjectHideFlags: 0

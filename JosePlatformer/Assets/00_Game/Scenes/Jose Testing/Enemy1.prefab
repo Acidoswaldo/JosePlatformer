@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 6583188463920888852}
   - component: {fileID: 6583188463920888857}
   - component: {fileID: 6583188463920888862}
-  - component: {fileID: 2025203551966916289}
   - component: {fileID: 6583188463920888856}
   - component: {fileID: -6346675016518717475}
   m_Layer: 7
@@ -145,24 +144,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
-  distanceToPlayer: 3
+  distanceToPlayer: 5
   enemyHealth: 100
---- !u!114 &2025203551966916289
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6583188463920888855}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 67290207b3dcd40708c3894e858620c0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spawnTime: 0
-  SpawnPoints: []
-  enemy: {fileID: 0}
-  maxEnemyCount: 5
 --- !u!50 &6583188463920888856
 Rigidbody2D:
   serializedVersion: 4
