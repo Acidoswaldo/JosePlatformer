@@ -52,6 +52,9 @@ public class UI_Settings : MonoBehaviour
 
         audioMixer.GetFloat("SfxVolume", out float audioValue);
         AudioSlider.value = audioValue;
+
+        AudioManager.StaticPlay("MainMenu");
+
     }
 
     public void SetResolution(int resolutionIndex)

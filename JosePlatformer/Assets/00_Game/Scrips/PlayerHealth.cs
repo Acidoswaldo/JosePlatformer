@@ -54,4 +54,15 @@ public class PlayerHealth : MonoBehaviour
         float barHealth = (float)currentHealth / (float)maxHealth;
         healthBar.fillAmount = barHealth;
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+       if (collision.tag=="ScreenDeath")
+        {
+            death = true;
+            GameManager.instance.gameEnded = true;
+            GameManager.instance.EndGame();
+            FindObjectOfType<AudioManager>().Play("PlayerDeath");
+        }
+    }
 }
